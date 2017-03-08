@@ -8,6 +8,7 @@
  
   <modules>
     <module>000-StaticFileServer</module>
-    <module>001-SimpleRestServer</module>    
+    <module>001-SimpleRestServer</module> 
+    <module>002-FullRestServer</module> 
   </modules>
 </project>
