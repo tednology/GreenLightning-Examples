@@ -9,10 +9,17 @@ public class FullRestServer implements GreenApp {
 	int REST_ROUTE_1;
 	int REST_ROUTE_2;
 	int STATIC_FILES_ROUTE;
-	String pathToIndex="";
+	final String pathToIndex;
+	
+	FullRestServer(String pathToIndex) {
+		this.pathToIndex = pathToIndex;
+	}
 	
 	public static void main(String[] args) { //All green lightning apps start with this main which passes in a GreenApp instance.
-		 GreenRuntime.run(new FullRestServer());
+		
+		 String path = FullRestServer.class.getResource("/site/index.html").toString().replace("file:", "");
+
+		 GreenRuntime.run(new FullRestServer(path));
 	}
 	
 	@Override
