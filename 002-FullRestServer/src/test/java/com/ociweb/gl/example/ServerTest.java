@@ -23,11 +23,14 @@ public class ServerTest {
 
 	@BeforeClass
 	public static void start() {
-		runtime = GreenRuntime.run(new FullRestServer());//NOTE: it would be nice if this could pick its own port in case of collision while testing.
+		 String path = FullRestServer.class.getResource("/site/index.html").toString().replace("file:", "");
+
+		runtime = GreenRuntime.run(new FullRestServer(path));//NOTE: it would be nice if this could pick its own port in case of collision while testing.
 	}
 	
 	@AfterClass
 	public static void end() {
+		
 		runtime.shutdownRuntime();
 	}
 	
